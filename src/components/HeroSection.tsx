@@ -75,40 +75,34 @@ export function HeroSection({onExploreDesigns}: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Right: Multi-Smartphone iPhone Pro Max Composition */}
+        {/* Right: Dual iPhone Pro Max Mockups of Real Uploaded Wedding Invitations */}
         <div className="lg:col-span-6">
-          <div className="relative mx-auto flex min-h-[390px] max-w-[500px] items-center justify-center sm:min-h-[470px]">
-            {/* Left Tilted Phone: Traditional Kandyan Wedding */}
-            <div className="absolute left-0 top-10 z-10 w-[40%] max-w-[180px] -rotate-6 transition-transform duration-300 ease-out hover:-translate-y-2 hover:-rotate-3 sm:left-3 sm:top-12">
+          <div className="relative mx-auto flex max-w-[540px] items-center justify-center gap-3 py-4 sm:gap-6">
+            {/* Subtle ambient glow behind both smartphones */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-8 top-1/2 h-64 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#6F1D2C]/15 via-[#C59B5F]/15 to-[#4C1D6E]/15 blur-3xl"
+            />
+
+            {/* Left Smartphone: Burgundy Elegance – Hasaranga & Roshini */}
+            <div className="relative z-10 w-[47%] max-w-[235px] -translate-y-3 -rotate-2 transition-transform duration-300 ease-out hover:-translate-y-5 hover:rotate-0 sm:max-w-[245px]">
               <IPhoneMockup
-                src="/src/assets/images/tpl_kandyan_wedding_1794909134410.jpg"
-                alt="Traditional Sri Lankan Kandyan wedding digital invitation on smartphone"
-                fallbackTitle="Kandyan Royal Heritage"
+                src="/assets/aistudio/Screenshot_2026-11-17_101018_63bc5747.png"
+                alt="Burgundy Elegance digital wedding invitation for Hasaranga & Roshini displayed on iPhone Pro Max"
+                fallbackTitle="Burgundy Elegance"
                 screenTone="dark"
                 size="hero"
                 loading="eager"
               />
             </div>
 
-            {/* Right Tilted Phone: Floral Birthday */}
-            <div className="absolute right-0 top-12 z-10 w-[40%] max-w-[180px] rotate-6 transition-transform duration-300 ease-out hover:-translate-y-2 hover:rotate-3 sm:right-3 sm:top-14">
+            {/* Right Smartphone: Royal Purple Romance – Roshini & Hasaranga */}
+            <div className="relative z-20 w-[47%] max-w-[235px] translate-y-3 rotate-2 transition-transform duration-300 ease-out hover:translate-y-1 hover:rotate-0 sm:max-w-[245px]">
               <IPhoneMockup
-                src="/src/assets/images/tpl_floral_birthday_1794909137351.jpg"
-                alt="Floral birthday digital invitation on smartphone"
-                fallbackTitle="Gardenia Soirée"
-                screenTone="ivory"
-                size="hero"
-                loading="eager"
-              />
-            </div>
-
-            {/* Center Primary Phone: Modern Luxury Wedding */}
-            <div className="relative z-20 w-[47%] max-w-[215px] transition-transform duration-300 ease-out hover:-translate-y-2">
-              <IPhoneMockup
-                src="/src/assets/images/tpl_luxury_wedding_1794909135084.jpg"
-                alt="Modern luxury Sri Lankan wedding digital invitation displayed on iPhone Pro Max"
-                fallbackTitle="Colombo Velvet & Orchid"
-                screenTone="ivory"
+                src="/assets/aistudio/Screenshot_2026-11-17_101148_8b3f79ae.png"
+                alt="Royal Purple Romance digital wedding invitation for Roshini & Hasaranga displayed on iPhone Pro Max"
+                fallbackTitle="Royal Purple Romance"
+                screenTone="dark"
                 size="hero"
                 loading="eager"
               />
