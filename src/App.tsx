@@ -8,8 +8,26 @@ import {PricingSection} from './components/PricingSection';
 import {TemplatesSection} from './components/TemplatesSection';
 import {WhyChooseUsAndProcess} from './components/WhyChooseUsAndProcess';
 
+const BASE_URL = import.meta.env.BASE_URL || '/';
+const NORMALIZED_BASE = BASE_URL.endsWith('/') ? BASE_URL : `${BASE_URL}/`;
+const BASE_PREFIX = NORMALIZED_BASE.slice(0, -1);
+
+function stripBase(pathname: string): string {
+  if (BASE_PREFIX && pathname.startsWith(BASE_PREFIX)) {
+    const rest = pathname.slice(BASE_PREFIX.length);
+    return rest.startsWith('/') ? rest : `/${rest}`;
+  }
+  return pathname;
+}
+
+function withRouteBase(routePath: string): string {
+  const cleanRoute = routePath.startsWith('/') ? routePath : `/${routePath}`;
+  return `${BASE_PREFIX}${cleanRoute}` || '/';
+}
+
 function parsePreviewSlug(pathname: string): string | null {
-  const normalized = pathname.replace(/\/+$/, '');
+  const relativePath = stripBase(pathname);
+  const normalized = relativePath.replace(/\/+$/, '');
   if (normalized === '/preview' || normalized === '/under-construction') {
     return '';
   }
@@ -47,8 +65,9 @@ export default function App() {
     };
 
     if (parsePreviewSlug(window.location.pathname) !== null) {
-      window.history.pushState({}, '', '/');
-      setPathname('/');
+      const homePath = withRouteBase('/');
+      window.history.pushState({}, '', homePath);
+      setPathname(homePath);
       requestAnimationFrame(() => {
         requestAnimationFrame(scrollNow);
       });
@@ -58,9 +77,10 @@ export default function App() {
   }, []);
 
   const handleGoHome = useCallback(() => {
-    if (window.location.pathname !== '/') {
-      window.history.pushState({}, '', '/');
-      setPathname('/');
+    const homePath = withRouteBase('/');
+    if (window.location.pathname !== homePath) {
+      window.history.pushState({}, '', homePath);
+      setPathname(homePath);
     }
     window.scrollTo({top: 0, behavior: 'smooth'});
   }, []);
@@ -74,7 +94,7 @@ export default function App() {
   );
 
   const handleLivePreview = useCallback((templateSlug: string) => {
-    const targetPath = `/preview/${encodeURIComponent(templateSlug)}`;
+    const targetPath = withRouteBase(`/preview/${encodeURIComponent(templateSlug)}`);
     window.history.pushState({}, '', targetPath);
     setPathname(targetPath);
     window.scrollTo({top: 0, behavior: 'auto'});

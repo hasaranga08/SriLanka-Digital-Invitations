@@ -1,5 +1,5 @@
 import {ArrowDown, MessageCircle} from 'lucide-react';
-import {getWhatsAppUrl} from '../data/invitations';
+import {getWhatsAppUrl, withBasePath} from '../data/invitations';
 import {IPhoneMockup} from './IPhoneMockup';
 
 interface HeroSectionProps {
@@ -87,7 +87,7 @@ export function HeroSection({onExploreDesigns}: HeroSectionProps) {
             {/* Left Smartphone: Burgundy Elegance – Hasaranga & Roshini */}
             <div className="relative z-10 w-[47%] max-w-[235px] -translate-y-3 -rotate-2 transition-transform duration-300 ease-out hover:-translate-y-5 hover:rotate-0 sm:max-w-[245px]">
               <IPhoneMockup
-                src="/assets/aistudio/Screenshot_2026-11-17_101018_63bc5747.png"
+                src={withBasePath('/assets/aistudio/Screenshot_2026-11-17_101018_63bc5747.png')}
                 alt="Burgundy Elegance digital wedding invitation for Hasaranga & Roshini displayed on iPhone Pro Max"
                 fallbackTitle="Burgundy Elegance"
                 screenTone="dark"
@@ -99,7 +99,7 @@ export function HeroSection({onExploreDesigns}: HeroSectionProps) {
             {/* Right Smartphone: Royal Purple Romance – Roshini & Hasaranga */}
             <div className="relative z-20 w-[47%] max-w-[235px] translate-y-3 rotate-2 transition-transform duration-300 ease-out hover:translate-y-1 hover:rotate-0 sm:max-w-[245px]">
               <IPhoneMockup
-                src="/assets/aistudio/Screenshot_2026-11-17_101148_8b3f79ae.png"
+                src={withBasePath('/assets/aistudio/Screenshot_2026-11-17_101148_8b3f79ae.png')}
                 alt="Royal Purple Romance digital wedding invitation for Roshini & Hasaranga displayed on iPhone Pro Max"
                 fallbackTitle="Royal Purple Romance"
                 screenTone="dark"

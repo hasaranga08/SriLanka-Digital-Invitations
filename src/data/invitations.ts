@@ -59,13 +59,20 @@ export interface ProcessStep {
   description: string;
 }
 
+export function withBasePath(assetPath: string): string {
+  const base = import.meta.env.BASE_URL || '/';
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  const normalizedPath = assetPath.startsWith('/') ? assetPath.slice(1) : assetPath;
+  return `${normalizedBase}${normalizedPath}`;
+}
+
 export const CATEGORIES: InvitationCategory[] = [
   {
     id: 'cat-wedding',
     slug: 'wedding',
     title: 'Wedding Invitations',
     subtitle: 'Poruwa, church, and reception invitations crafted for your big day.',
-    image: '/src/assets/images/tpl_luxury_wedding_1794909135084.jpg',
+    image: withBasePath('/src/assets/images/tpl_luxury_wedding_1794909135084.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -73,7 +80,7 @@ export const CATEGORIES: InvitationCategory[] = [
     slug: 'homecoming',
     title: 'Homecoming Invitations',
     subtitle: 'Regal crimson and gold accents honouring family traditions.',
-    image: '/src/assets/images/tpl_homecoming_1794909137135.jpg',
+    image: withBasePath('/src/assets/images/tpl_homecoming_1794909137135.jpg'),
     screenTone: 'dark',
   },
   {
@@ -81,7 +88,7 @@ export const CATEGORIES: InvitationCategory[] = [
     slug: 'birthday',
     title: 'Birthday Invitations',
     subtitle: 'Floral, milestone, and themed birthday invites guests love opening.',
-    image: '/src/assets/images/tpl_floral_birthday_1794909137351.jpg',
+    image: withBasePath('/src/assets/images/tpl_floral_birthday_1794909137351.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -89,7 +96,7 @@ export const CATEGORIES: InvitationCategory[] = [
     slug: 'bride-to-be',
     title: 'Bride-to-Be Invitations',
     subtitle: 'Chic high-tea, bridal shower, and bachelorette celebrations.',
-    image: '/src/assets/images/tpl_bridetobe_1794909138634.jpg',
+    image: withBasePath('/src/assets/images/tpl_bridetobe_1794909138634.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -97,7 +104,7 @@ export const CATEGORIES: InvitationCategory[] = [
     slug: 'engagement',
     title: 'Engagement Invitations',
     subtitle: 'Romantic keepsakes announcing your next chapter together.',
-    image: '/src/assets/images/tpl_engagement_1794909138201.jpg',
+    image: withBasePath('/src/assets/images/tpl_engagement_1794909138201.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -105,7 +112,7 @@ export const CATEGORIES: InvitationCategory[] = [
     slug: 'baby-shower',
     title: 'Baby Shower Invitations',
     subtitle: 'Soft botanical and pastel stationery welcoming little ones.',
-    image: '/src/assets/images/tpl_baby_shower_1794909139058.jpg',
+    image: withBasePath('/src/assets/images/tpl_baby_shower_1794909139058.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -113,7 +120,7 @@ export const CATEGORIES: InvitationCategory[] = [
     slug: 'party',
     title: 'Party Invitations',
     subtitle: 'Anniversaries, cocktail evenings, and private celebrations.',
-    image: '/src/assets/images/tpl_party_1794909145219.jpg',
+    image: withBasePath('/src/assets/images/tpl_party_1794909145219.jpg'),
     screenTone: 'dark',
   },
   {
@@ -121,7 +128,7 @@ export const CATEGORIES: InvitationCategory[] = [
     slug: 'corporate',
     title: 'Corporate Event Invitations',
     subtitle: 'Polished executive gala, summit, and launch invitations.',
-    image: '/src/assets/images/tpl_corporate_gala_1794909141223.jpg',
+    image: withBasePath('/src/assets/images/tpl_corporate_gala_1794909141223.jpg'),
     screenTone: 'dark',
   },
 ];
@@ -136,7 +143,7 @@ export const TEMPLATES: InvitationTemplate[] = [
     shortDescription:
       'Deep burgundy silk, gleaming gold rings, and a glitter-sealed floral monogram.',
     startingPrice: 'From LKR 2,500',
-    image: '/assets/aistudio/Screenshot_2026-11-17_101018_63bc5747.png',
+    image: withBasePath('/assets/aistudio/Screenshot_2026-11-17_101018_63bc5747.png'),
     screenTone: 'dark',
   },
   {
@@ -148,7 +155,7 @@ export const TEMPLATES: InvitationTemplate[] = [
     shortDescription:
       'Rich royal purple silk with a gold laurel wreath envelope and timeless finish.',
     startingPrice: 'From LKR 2,500',
-    image: '/assets/aistudio/Screenshot_2026-11-17_101148_8b3f79ae.png',
+    image: withBasePath('/assets/aistudio/Screenshot_2026-11-17_101148_8b3f79ae.png'),
     screenTone: 'dark',
   },
   {
@@ -160,7 +167,7 @@ export const TEMPLATES: InvitationTemplate[] = [
     shortDescription:
       'Champagne gold and warm ivory florals blending traditional grace with modern luxury.',
     startingPrice: 'From LKR 4,000',
-    image: '/src/assets/images/tpl_golden_serenity_1794911429970.jpg',
+    image: withBasePath('/src/assets/images/tpl_golden_serenity_1794911429970.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -172,7 +179,7 @@ export const TEMPLATES: InvitationTemplate[] = [
     shortDescription:
       'Soft sage eucalyptus, olive greenery, and white garden roses for romantic weddings.',
     startingPrice: 'From LKR 2,500',
-    image: '/src/assets/images/tpl_enchanted_garden_1794911430017.jpg',
+    image: withBasePath('/src/assets/images/tpl_enchanted_garden_1794911430017.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -184,7 +191,7 @@ export const TEMPLATES: InvitationTemplate[] = [
     shortDescription:
       'Dusty pink peonies, rose gold framing, and soft cream textures for engagements.',
     startingPrice: 'From LKR 2,500',
-    image: '/src/assets/images/tpl_blush_romance_1794911431229.jpg',
+    image: withBasePath('/src/assets/images/tpl_blush_romance_1794911431229.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -196,7 +203,7 @@ export const TEMPLATES: InvitationTemplate[] = [
     shortDescription:
       'Pastel pink and warm peach silk adorned with joyful florals and gold accents.',
     startingPrice: 'From LKR 2,500',
-    image: '/src/assets/images/tpl_birthday_bliss_1794911432726.jpg',
+    image: withBasePath('/src/assets/images/tpl_birthday_bliss_1794911432726.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -208,7 +215,7 @@ export const TEMPLATES: InvitationTemplate[] = [
     shortDescription:
       'Lavender silk, champagne gold bows, and pearl florals for chic bridal celebrations.',
     startingPrice: 'From LKR 2,500',
-    image: '/src/assets/images/tpl_royal_celebration_1794911433228.jpg',
+    image: withBasePath('/src/assets/images/tpl_royal_celebration_1794911433228.jpg'),
     screenTone: 'ivory',
   },
   {
@@ -220,13 +227,14 @@ export const TEMPLATES: InvitationTemplate[] = [
     shortDescription:
       'Minimalist black, crisp ivory, and champagne gold typography for executive events.',
     startingPrice: 'From LKR 4,000',
-    image: '/src/assets/images/tpl_modern_elegance_1794911433582.jpg',
+    image: withBasePath('/src/assets/images/tpl_modern_elegance_1794911433582.jpg'),
     screenTone: 'dark',
   },
 ];
 
-export const UNDER_CONSTRUCTION_IMAGE =
-  '/src/assets/images/under_construction_art_1794909141467.jpg';
+export const UNDER_CONSTRUCTION_IMAGE = withBasePath(
+  '/src/assets/images/under_construction_art_1794909141467.jpg',
+);
 
 export const PRICING_PACKAGES: PricingPackage[] = [
   {
