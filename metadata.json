@@ -2,5 +2,7 @@
   "name": "Sri Lanka Digital Invitations",
   "description": "Personalised, mobile-first digital invitations for Sri Lankan weddings, homecomings, birthdays, and special celebrations. Share effortlessly via WhatsApp.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

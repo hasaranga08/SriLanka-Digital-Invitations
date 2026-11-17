@@ -6,7 +6,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/SriLanka-Digital-Invitations/',
+    base: '/',
     plugins: [
       react(),
       tailwindcss(),
